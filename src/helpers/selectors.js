@@ -17,3 +17,16 @@ export function getAppointmentsForDay(state, day) {
   return filteredAppointments;
 };
 
+export function getInterview(state, interview) {
+  let returnInterview = {};
+  if (interview === null || interview.interviewer === null) {
+    return null;
+  }
+  for (const interviewerObj in state.interviewers) {
+    let intKey = parseInt(interviewerObj)
+    if (intKey === interview.interviewer) {
+      returnInterview = ({...interview, interviewer: state.interviewers[interviewerObj]});
+    }
+  }
+  return returnInterview;
+};
