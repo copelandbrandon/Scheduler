@@ -30,3 +30,22 @@ export function getInterview(state, interview) {
   }
   return returnInterview;
 };
+
+export function getInterviewersForDay(state, day) {
+  const filteredInterviewers = [];
+  const filteredDays = state.days.filter(filteredDay => filteredDay.name === day)
+  //if the day is undefined or has no appointments will return an empty array
+  if (filteredDays[0] === undefined || filteredDays[0].appointments.length < 1) {
+    return [];
+  }
+  //turns object keys into integers and checks if the filtered days appointments array contains the keys
+  //and if so pushes the appointment obj into filteredAppointments array
+  for (const key in state.interviewers) {
+    let intKey = parseInt(key);
+    if (filteredDays[0].interviewers.includes(intKey)) {
+      filteredInterviewers.push(state.interviewers[key]);
+    }
+  }
+  console.log(filteredInterviewers);
+  return filteredInterviewers;
+};
