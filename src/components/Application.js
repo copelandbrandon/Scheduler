@@ -19,7 +19,22 @@ export default function Application(props) {
   const interviewersArr = getInterviewersForDay(state, state.day);
 
   const setDay = day => setState({...state, day});
-  
+
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return axios.delete(`/api/appointments/${id}`)
+    .then(()=>{setState({...state, appointments})})
+    .catch((err)=>(console.log(err.message)));
+  };
+
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -76,6 +91,7 @@ export default function Application(props) {
           interview={interview}
           interviewers={interviewersArr}
           bookInterview={bookInterview}
+          cancelInterview={cancelInterview}
           />);
         })}
         <Appointment id="last" time="5pm" />
