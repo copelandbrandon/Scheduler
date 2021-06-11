@@ -46,6 +46,5 @@ export function getInterviewersForDay(state, day) {
       filteredInterviewers.push(state.interviewers[key]);
     }
   }
-  console.log(filteredInterviewers);
   return filteredInterviewers;
 };

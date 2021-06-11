@@ -5,36 +5,6 @@ import Appointment from 'components/Appointment';
 import axios from "axios";
 import {getAppointmentsForDay, getInterview, getInterviewersForDay} from '../helpers/selectors';
 
-// const appointments = [
-//   {
-//     id: 1,
-//     time: "12pm",
-//   },
-//   {
-//     id: 2,
-//     time: "1pm",
-//     interview: {
-//       student: "Lydia Miller-Jones",
-//       interviewer: {
-//         id: 1,
-//         name: "Sylvia Palmer",
-//         avatar: "https://i.imgur.com/LpaY82x.png",
-//       }
-//     }
-//   },
-//   {
-//     id: 3,
-//     time: "2pm"
-//   },
-//   {
-//     id: 4,
-//     time: "3pm"
-//   },
-//   {
-//     id: 5,
-//     time: "4pm"
-//   }
-// ];
 
 export default function Application(props) {
 
@@ -49,7 +19,24 @@ export default function Application(props) {
   const interviewersArr = getInterviewersForDay(state, state.day);
 
   const setDay = day => setState({...state, day});
-  // const setDays = days => setState(prev => ({...prev, days}));
+  
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: {...interview}
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return axios.put(`/api/appointments/${id}`, {interview})
+    .then(()=> {
+      setState({...state, appointments});
+    })
+    .catch((err)=> console.log(err.message));
+  };
+
 
   useEffect(()=>{
     Promise.all([
@@ -88,6 +75,7 @@ export default function Application(props) {
           {...appointment}
           interview={interview}
           interviewers={interviewersArr}
+          bookInterview={bookInterview}
           />);
         })}
         <Appointment id="last" time="5pm" />

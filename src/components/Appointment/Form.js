@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import classNames from 'classnames';
 
 export default function Form(props) {
-  let nameVar;
+
   const [usersName, setUsersName] = useState(props.name || "");
   const [currentInterviewer, setInterviewer] = useState(props.interviewer || null);
 
@@ -37,7 +37,7 @@ export default function Form(props) {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button onClick={() => cancel()} danger>Cancel</Button>
-          <Button onClick={props.onSave} confirm>Save</Button>
+          <Button onClick={() =>props.onSave(usersName, currentInterviewer)} confirm>Save</Button>
         </section>
       </section>
     </main>
