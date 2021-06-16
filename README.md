@@ -13,27 +13,6 @@ A react app that facilitates the creation and deletion of interview appointments
 ### Delete an existing appointment
 ![Delete_Screenshot](https://github.com/copelandbrandon/Scheduler/blob/master/docs/delete_screenshot.png?raw=true)
 
-## Setup
-
-Install dependencies with `npm install`.
-
-## Running Webpack Development Server
-
-```sh
-npm start
-```
-
-## Running Jest Test Framework
-
-```sh
-npm test
-```
-
-## Running Storybook Visual Testbed
-
-```sh
-npm run storybook
-```
 ## Dependencies
 
 - axios
@@ -43,3 +22,25 @@ npm run storybook
 - react-dom
 - classnames
 - normalize.css
+
+## Getting Started
+
+1. Install dependencies with `npm install`.
+
+### 2. Run Webpack Development Server With
+
+```sh
+npm start
+```
+
+### 3. Run The Jest Test Framework With
+
+```sh
+npm test
+```
+
+### 4. Run Storybook Visual Testbed With
+
+```sh
+npm run storybook
+```
