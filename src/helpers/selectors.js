@@ -1,8 +1,14 @@
+//returns an array of appointments for a given day
 export function getAppointmentsForDay(state, day) {
   const filteredAppointments = [];
-  const filteredDays = state.days.filter(filteredDay => filteredDay.name === day)
+  const filteredDays = state.days.filter(
+    (filteredDay) => filteredDay.name === day
+  );
   //if the day is undefined or has no appointments will return an empty array
-  if (filteredDays[0] === undefined || filteredDays[0].appointments.length < 1) {
+  if (
+    filteredDays[0] === undefined ||
+    filteredDays[0].appointments.length < 1
+  ) {
     return [];
   }
   //turns object keys into integers and checks if the filtered days appointments array contains the keys
@@ -15,27 +21,37 @@ export function getAppointmentsForDay(state, day) {
   }
 
   return filteredAppointments;
-};
+}
 
+//returns an interview object
 export function getInterview(state, interview) {
   let returnInterview = {};
   if (interview === null || interview.interviewer === null) {
     return null;
   }
   for (const interviewerObj in state.interviewers) {
-    let intKey = parseInt(interviewerObj)
+    let intKey = parseInt(interviewerObj);
     if (intKey === interview.interviewer) {
-      returnInterview = ({...interview, interviewer: state.interviewers[interviewerObj]});
+      returnInterview = {
+        ...interview,
+        interviewer: state.interviewers[interviewerObj],
+      };
     }
   }
   return returnInterview;
-};
+}
 
+//returns an array of interviewers available on a specific day
 export function getInterviewersForDay(state, day) {
   const filteredInterviewers = [];
-  const filteredDays = state.days.filter(filteredDay => filteredDay.name === day)
+  const filteredDays = state.days.filter(
+    (filteredDay) => filteredDay.name === day
+  );
   //if the day is undefined or has no appointments will return an empty array
-  if (filteredDays[0] === undefined || filteredDays[0].appointments.length < 1) {
+  if (
+    filteredDays[0] === undefined ||
+    filteredDays[0].appointments.length < 1
+  ) {
     return [];
   }
   //turns object keys into integers and checks if the filtered days appointments array contains the keys
@@ -47,4 +63,4 @@ export function getInterviewersForDay(state, day) {
     }
   }
   return filteredInterviewers;
-};
+}
