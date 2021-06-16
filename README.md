@@ -6,9 +6,12 @@ A react app that facilitates the creation and deletion of interview appointments
 
 ## Screenshots
 
-![title](url)
-![title](url)
-![title](url)
+### Home page
+![Home_Screenshot](https://github.com/copelandbrandon/Scheduler/blob/master/docs/home_screenshot.png?raw=true)
+### Add a new appointment
+![Add_Screenshot](https://github.com/copelandbrandon/Scheduler/blob/master/docs/add_screenshot.png?raw=true)
+### Delete an existing appointment
+![Delete_Screenshot](https://github.com/copelandbrandon/Scheduler/blob/master/docs/delete_screenshot.png?raw=true)
 
 ## Setup
 
@@ -32,3 +35,11 @@ npm test
 npm run storybook
 ```
 ## Dependencies
+
+- axios
+- @testing-library/react-hooks
+- react-test-renderer
+- react
+- react-dom
+- classnames
+- normalize.css
