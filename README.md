@@ -1,5 +1,15 @@
 # Interview Scheduler
 
+A react app that facilitates the creation and deletion of interview appointments.
+
+## Built as a project for Lighthouse Labs
+
+## Screenshots
+
+![title](url)
+![title](url)
+![title](url)
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -21,3 +31,4 @@ npm test
 ```sh
 npm run storybook
 ```
+## Dependencies
