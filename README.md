@@ -27,20 +27,15 @@ A react app that facilitates the creation and deletion of interview appointments
 
 1. Install dependencies with `npm install`.
 
-### 2. Run Webpack Development Server With
-
+2. Run Webpack Development Server With
 ```sh
 npm start
 ```
-
-### 3. Run The Jest Test Framework With
-
+3. Run The Jest Test Framework With
 ```sh
 npm test
 ```
-
-### 4. Run Storybook Visual Testbed With
-
+4. Run Storybook Visual Testbed With
 ```sh
 npm run storybook
 ```
