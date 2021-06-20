@@ -21,7 +21,7 @@ export function getAppointmentsForDay(state, day) {
   }
 
   return filteredAppointments;
-}
+};
 
 //returns an interview object
 export function getInterview(state, interview) {
@@ -39,7 +39,7 @@ export function getInterview(state, interview) {
     }
   }
   return returnInterview;
-}
+};
 
 //returns an array of interviewers available on a specific day
 export function getInterviewersForDay(state, day) {
@@ -63,4 +63,4 @@ export function getInterviewersForDay(state, day) {
     }
   }
   return filteredInterviewers;
-}
+};

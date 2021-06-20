@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import InterviewerList from '../InterviewerList';
 import Button from '../Button';
-import { action } from '@storybook/addon-actions';
 
 export default function Form(props) {
   const [error, setError] = useState("");
@@ -11,6 +10,9 @@ export default function Form(props) {
   const validate = function() {
     if (usersName === "") {
       setError("Student name cannot be blank");
+      return;
+    } else if (!currentInterviewer) {
+      setError("Please pick an interviewer");
       return;
     }
 
@@ -46,8 +48,8 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button onClick={() => cancel()} danger>Cancel</Button>
-          <Button onClick={() => validate()} confirm>Save</Button>
+          <Button onClick={cancel} danger>Cancel</Button>
+          <Button onClick={validate} confirm>Save</Button>
         </section>
       </section>
     </main>
